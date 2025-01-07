@@ -1,0 +1,8 @@
+2025.01.08:
+* changed: project extracted from `contools` project
+* changed: scripts/download_url_to_file.bat: improvements
+
+===============================================================================
+
+2022.03.21:
+* new: `download_url_to_file.bat` curl downloader script
