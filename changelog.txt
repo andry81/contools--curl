@@ -1,3 +1,6 @@
+2025.02.03:
+* changed: .externals: switch `7zip` to `24_09_release` branch
+
 2025.01.08:
 * changed: project extracted from `contools` project
 * changed: scripts/download_url_to_file.bat: improvements
