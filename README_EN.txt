@@ -1,15 +1,17 @@
 * README_EN.txt
-* 2025.01.07
+* 2025.02.06
 * contools--curl
 
 1. DESCRIPTION
-2. CATALOG CONTENT DESCRIPTION
-3. EXTERNALS
-4. USAGE
-4.1. Generate config files
-4.2. Edit generated config files
-4.3. Run download script
-5. AUTHOR
+2. LICENSE
+3. REPOSITORIES
+4. CATALOG CONTENT DESCRIPTION
+5. EXTERNALS
+6. USAGE
+6.1. Generate config files
+6.2. Edit generated config files
+6.3. Run download script
+7. AUTHOR
 
 -------------------------------------------------------------------------------
 1. DESCRIPTION
@@ -17,7 +19,26 @@
 Curl script to download URL in pages.
 
 -------------------------------------------------------------------------------
-2. CATALOG CONTENT DESCRIPTION
+2. LICENSE
+-------------------------------------------------------------------------------
+The MIT license (see included text file "license.txt" or
+https://en.wikipedia.org/wiki/MIT_License)
+
+-------------------------------------------------------------------------------
+3. REPOSITORIES
+-------------------------------------------------------------------------------
+Primary:
+  * https://github.com/andry81/contools--curl/branches
+    https://github.com/andry81/contools--curl.git
+First mirror:
+  * https://sf.net/p/contools/contools--curl/ci/master/tree
+    https://git.code.sf.net/p/contools/contools--curl
+Second mirror:
+  * https://gitlab.com/andry81/contools-curl/-/branches
+    https://gitlab.com/andry81/contools-curl.git
+
+-------------------------------------------------------------------------------
+4. CATALOG CONTENT DESCRIPTION
 -------------------------------------------------------------------------------
 
 <root>
@@ -26,6 +47,10 @@ Curl script to download URL in pages.
  |    #
  |    # Log files directory, where does store all log files from all scripts
  |    # including all nested projects.
+ |
+ +- /`_externals`
+ |    #
+ |    # Immediate external repositories catalog.
  |
  +- /`_config`
  |    #
@@ -56,18 +81,18 @@ Curl script to download URL in pages.
      # Scripts.
 
 -------------------------------------------------------------------------------
-3. EXTERNALS
+5. EXTERNALS
 -------------------------------------------------------------------------------
 See details in `README_EN.txt` in `externals` project:
 
 https://github.com/andry81/externals
 
 -------------------------------------------------------------------------------
-4. USAGE
+6. USAGE
 -------------------------------------------------------------------------------
 
 -------------------------------------------------------------------------------
-4.1. Generate config files
+6.1. Generate config files
 -------------------------------------------------------------------------------
 
 Run:
@@ -76,13 +101,13 @@ Run:
   __init__/__init__.bat
 
 -------------------------------------------------------------------------------
-4.2. Edit generated config files
+6.2. Edit generated config files
 -------------------------------------------------------------------------------
 
 config.0.vars
 
 -------------------------------------------------------------------------------
-4.3. Run download script
+6.3. Run download script
 -------------------------------------------------------------------------------
 
 To download web site in pages:
@@ -91,6 +116,6 @@ To download web site in pages:
   scripts/download_url_to_file.bat "https://github.com/git-for-windows/git/releases?page={PAGENUM}" 1 10 "git-for-windows--releases--page-{PAGENUM}.html"
 
 -------------------------------------------------------------------------------
-5. AUTHOR
+7. AUTHOR
 -------------------------------------------------------------------------------
 Andrey Dibrov (andry at inbox dot ru)
