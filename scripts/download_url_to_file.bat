@@ -21,7 +21,7 @@ if defined FLAG (
     set "FLAG_ZERO_PAD=%~2"
     shift
   ) else if not "%FLAG%" == "--" (
-    echo.%?~nx0%: error: invalid flag: %FLAG%
+    echo.%?~%: error: invalid flag: %FLAG%
     exit /b -255
   ) >&2
 
@@ -42,17 +42,17 @@ rem Use {PAGENUM} as placeholder
 set "OUT_FILE_NAME_TMPL=%~4"
 
 if not defined FROM_PAGE (
-  echo.%?~nx0%: error: FROM_PAGE is not defined.
+  echo.%?~%: error: FROM_PAGE is not defined.
   exit /b 10
 ) >&2
 
 if not defined TO_PAGE (
-  echo.%?~nx0%: error: TO_PAGE is not defined.
+  echo.%?~%: error: TO_PAGE is not defined.
   exit /b 11
 ) >&2
 
 if not defined OUT_FILE_NAME_TMPL (
-  echo.%?~nx0%: error: OUT_FILE_NAME_TMPL is not defined.
+  echo.%?~%: error: OUT_FILE_NAME_TMPL is not defined.
   exit /b 12
 ) >&2
 
@@ -71,12 +71,12 @@ if not defined FROM_PAGE goto NO_PAGES
 if not defined TO_PAGE goto NO_PAGES
 
 if %FROM_PAGE% LSS 0 (
-  echo.%?~nx0%: error: FROM_PAGE must be not negative number: "%FROM_PAGE%".
+  echo.%?~%: error: FROM_PAGE must be not negative number: "%FROM_PAGE%".
   exit /b 30
 ) >&2
 
 if %TO_PAGE% LSS 0 (
-  echo.%?~nx0%: error: TO_PAGE must be not negative number: "%TO_PAGE%".
+  echo.%?~%: error: TO_PAGE must be not negative number: "%TO_PAGE%".
   exit /b 31
 ) >&2
 
