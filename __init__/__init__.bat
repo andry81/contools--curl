@@ -23,7 +23,7 @@ call "%%~dp0canonical_path_if_ndef.bat" CONTOOLS_CURL_PROJECT_ROOT              
 call "%%~dp0canonical_path_if_ndef.bat" CONTOOLS_CURL_PROJECT_EXTERNALS_ROOT      "%%CONTOOLS_CURL_PROJECT_ROOT%%/_externals"
 
 if not exist "%CONTOOLS_CURL_PROJECT_EXTERNALS_ROOT%\*" (
-  echo.%~nx0: error: CONTOOLS_CURL_PROJECT_EXTERNALS_ROOT directory does not exist: "%CONTOOLS_CURL_PROJECT_EXTERNALS_ROOT%".
+  echo;%~nx0: error: CONTOOLS_CURL_PROJECT_EXTERNALS_ROOT directory does not exist: "%CONTOOLS_CURL_PROJECT_EXTERNALS_ROOT%".
   exit /b 255
 ) >&2
 
@@ -57,7 +57,7 @@ if %NO_GEN%0 EQU 0 (
 ) else call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/load_config_dir.bat" %%* -- "%%CONTOOLS_CURL_PROJECT_INPUT_CONFIG_ROOT%%" "%%CONTOOLS_CURL_PROJECT_OUTPUT_CONFIG_ROOT%%" || exit /b
 
 call "%%CONTOOLS_ROOT%%/std/if_var_defined_and_file_exist.bat" CURL_EXECUTABLE || (
-  echo.%~nx0: error: CURL_EXECUTABLE file path is not found: "%CURL_EXECUTABLE%"
+  echo;%~nx0: error: CURL_EXECUTABLE file path is not found: "%CURL_EXECUTABLE%"
   exit /b 255
 ) >&2
 

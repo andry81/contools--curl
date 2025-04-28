@@ -21,7 +21,7 @@ if defined FLAG (
     set "FLAG_ZERO_PAD=%~2"
     shift
   ) else if not "%FLAG%" == "--" (
-    echo.%?~%: error: invalid flag: %FLAG%
+    echo;%?~%: error: invalid flag: %FLAG%
     exit /b -255
   ) >&2
 
@@ -42,17 +42,17 @@ rem Use {PAGENUM} as placeholder
 set "OUT_FILE_NAME_TMPL=%~4"
 
 if not defined FROM_PAGE (
-  echo.%?~%: error: FROM_PAGE is not defined.
+  echo;%?~%: error: FROM_PAGE is not defined.
   exit /b 10
 ) >&2
 
 if not defined TO_PAGE (
-  echo.%?~%: error: TO_PAGE is not defined.
+  echo;%?~%: error: TO_PAGE is not defined.
   exit /b 11
 ) >&2
 
 if not defined OUT_FILE_NAME_TMPL (
-  echo.%?~%: error: OUT_FILE_NAME_TMPL is not defined.
+  echo;%?~%: error: OUT_FILE_NAME_TMPL is not defined.
   exit /b 12
 ) >&2
 
@@ -71,12 +71,12 @@ if not defined FROM_PAGE goto NO_PAGES
 if not defined TO_PAGE goto NO_PAGES
 
 if %FROM_PAGE% LSS 0 (
-  echo.%?~%: error: FROM_PAGE must be not negative number: "%FROM_PAGE%".
+  echo;%?~%: error: FROM_PAGE must be not negative number: "%FROM_PAGE%".
   exit /b 30
 ) >&2
 
 if %TO_PAGE% LSS 0 (
-  echo.%?~%: error: TO_PAGE must be not negative number: "%TO_PAGE%".
+  echo;%?~%: error: TO_PAGE must be not negative number: "%TO_PAGE%".
   exit /b 31
 ) >&2
 
@@ -99,11 +99,11 @@ call :PROCESS_URL %%CURL_FLAGS%% || goto MAIN_EXIT
 
 call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/xcopy_dir.bat" "%%PROJECT_LOG_DIR%%" "%%CURL_DOWNLOAD_TEMP_DIR%%/%%PROJECT_LOG_FILE_NAME_DATE_TIME%%" /Y /D /H || exit /b 10
 
-echo.Archiving backup directory...
+echo;Archiving backup directory...
 call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/add_files_to_archive.bat" "%%CURL_DOWNLOAD_TEMP_DIR%%" "*" "%%CURL_DOWNLOAD_DIR%%/%%PROJECT_LOG_FILE_NAME_DATE_TIME%%--%%OUT_FILE_NAME_TMPL%%.7z" -sdel || exit /b 20
 set LAST_ERROR=%ERRORLEVEL%
 
-echo.
+echo;
 
 rem avoid command line temporary directory remove on archive error
 if %LAST_ERROR% NEQ 0 goto SKIP_TEMP_DIR_REMOVE
@@ -116,7 +116,7 @@ rmdir /S /Q "%CURL_DOWNLOAD_TEMP_DIR%" >nul 2>nul
 exit /b %LAST_ERROR%
 
 :MAIN_EXIT
-echo.
+echo;
 
 exit /b
 
