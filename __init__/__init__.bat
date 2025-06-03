@@ -56,10 +56,8 @@ if %NO_GEN%0 EQU 0 (
   call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/load_config_dir.bat" %%* -gen_user_config -- "%%CONTOOLS_CURL_PROJECT_INPUT_CONFIG_ROOT%%" "%%CONTOOLS_CURL_PROJECT_OUTPUT_CONFIG_ROOT%%" || exit /b
 ) else call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/load_config_dir.bat" %%* -- "%%CONTOOLS_CURL_PROJECT_INPUT_CONFIG_ROOT%%" "%%CONTOOLS_CURL_PROJECT_OUTPUT_CONFIG_ROOT%%" || exit /b
 
-call "%%CONTOOLS_ROOT%%/std/if_var_defined_and_file_exist.bat" CURL_EXECUTABLE || (
-  echo;%~nx0: error: CURL_EXECUTABLE file path is not found: "%CURL_EXECUTABLE%"
-  exit /b 255
-) >&2
+call "%%CONTOOLS_ROOT%%/std/canonical_file_vars.bat" CURL_EXECUTABLE || exit /b
+call "%%CONTOOLS_ROOT%%/std/canonical_dir_vars.bat" CURL_DOWNLOAD_DIR || exit /b
 
 if %NO_GEN%0 EQU 0 (
   call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/mkdir_if_notexist.bat" "%%PROJECT_OUTPUT_ROOT%%" || exit /b
@@ -68,8 +66,6 @@ if %NO_GEN%0 EQU 0 (
 if %NO_CHCP%0 EQU 0 (
   if defined CHCP call "%%CONTOOLS_ROOT%%/std/chcp.bat" %%CHCP%%
 )
-
-call "%%CONTOOLS_ROOT%%/std/canonical_path.bat" CURL_DOWNLOAD_DIR "%%CURL_DOWNLOAD_DIR%%"
 
 call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/mkdir_if_notexist.bat" "%%CURL_DOWNLOAD_DIR%%" || exit /b
 
