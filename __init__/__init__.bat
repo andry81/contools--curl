@@ -54,7 +54,7 @@ if not defined LOAD_CONFIG_VERBOSE if %INIT_VERBOSE%0 NEQ 0 set LOAD_CONFIG_VERB
 
 if %NO_GEN%0 EQU 0 (
   call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/load_config_dir.bat" %%* -gen_user_config -- "%%CONTOOLS_CURL_PROJECT_INPUT_CONFIG_ROOT%%" "%%CONTOOLS_CURL_PROJECT_OUTPUT_CONFIG_ROOT%%" || exit /b
-) else call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/load_config_dir.bat" %%* -- "%%CONTOOLS_CURL_PROJECT_INPUT_CONFIG_ROOT%%" "%%CONTOOLS_CURL_PROJECT_OUTPUT_CONFIG_ROOT%%" || exit /b
+) else call "%%CONTOOLS_BUILD_TOOLS_ROOT%%/load_config_dir.bat" -+ %%* -- "%%CONTOOLS_CURL_PROJECT_INPUT_CONFIG_ROOT%%" "%%CONTOOLS_CURL_PROJECT_OUTPUT_CONFIG_ROOT%%" || exit /b
 
 call "%%CONTOOLS_ROOT%%/std/canonical_file_vars.bat" CURL_EXECUTABLE || exit /b
 call "%%CONTOOLS_ROOT%%/std/canonical_dir_vars.bat" CURL_DOWNLOAD_DIR || exit /b
