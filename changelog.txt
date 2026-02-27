@@ -1,3 +1,6 @@
+2026.02.27:
+* changed: .externals: update to the latest
+
 2026.02.26:
 * fixed: __init__/__init__.bat: execution fixup
 
