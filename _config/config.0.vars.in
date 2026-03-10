@@ -30,4 +30,4 @@ once CURL_EXECUTABLE                      ="c:\cygwin\bin\curl.exe"
 
 once CURL_DOWNLOAD_DIR                    ="%PROJECT_OUTPUT_ROOT%/download"
 
-once CHCP                                 =65001
+#once CHCP                                 =65001
